@@ -6,7 +6,7 @@ st.set_page_config(page_title="X Analizator", layout="wide")
 st.title("⚽ Debug Analizator")
 
 API_KEY = "3ddcbeccab1913faff15acd0af83268f"
-REGION = "eu"
+REGION = "us,uk,eu"  # Ovdje smo proširili regije
 MARKETS = "h2h"
 
 if st.button("🔄 Osvježi"):
@@ -22,13 +22,14 @@ try:
     
     svi_parovi = []
     
-    # Skeniramo prvih 10 liga radi brzine testa
+    # Skeniramo prvih 10 liga radi brzine
     for liga_key in lige[:10]:
         url = f"https://api.the-odds-api.com/v4/sports/{liga_key}/odds/?apiKey={API_KEY}&regions={REGION}&markets={MARKETS}&oddsFormat=decimal"
         resp = requests.get(url)
         
         if resp.status_code == 200:
             data = resp.json()
+            # Prikaz broja mečeva za svaku ligu
             st.write(f"Liga {liga_key} vraća {len(data)} mečeva.")
             
             for mec in data:
