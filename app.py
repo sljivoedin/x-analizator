@@ -61,7 +61,7 @@ with st.spinner("🔍 Skeniram sve svjetske lige..."):
                 jedinstveni = {p["Par"]: p for p in svi_parovi}.values()
                 st.table(list(jedinstveni))
             else:
-                st.warning("Trenutno nema parova sa šansom > 60%.")
+                st.warning("Trenutno nema parova sa šansom > 30%.")
         else:
             st.error("API greška.")
     except Exception as e:
