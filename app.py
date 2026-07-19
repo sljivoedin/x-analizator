@@ -47,7 +47,7 @@ with st.spinner("🔍 Skeniram sve svjetske lige..."):
                                             kx = outcomes["Draw"]
                                             # Tvoja formula za šansu
                                             sansa = int((1 / kx) * 250) 
-                                            if sansa >= 60:
+                                            if sansa >= 30:
                                                 svi_parovi.append({
                                                     "Šansa za X": f"{min(sansa, 99)}%",
                                                     "Liga": mec["sport_title"],
