@@ -47,7 +47,7 @@ with st.spinner("🔍 Skeniram sve svjetske lige..."):
                                             kx = outcomes["Draw"]
                                             # Tvoja formula za šansu
                                             sansa = int((1 / kx) * 250) 
-                                            if sansa >= 30:
+                                            if sansa >= 10:
                                                 svi_parovi.append({
                                                     "Šansa za X": f"{min(sansa, 99)}%",
                                                     "Liga": mec["sport_title"],
@@ -61,7 +61,7 @@ with st.spinner("🔍 Skeniram sve svjetske lige..."):
                 jedinstveni = {p["Par"]: p for p in svi_parovi}.values()
                 st.table(list(jedinstveni))
             else:
-                st.warning("Trenutno nema parova sa šansom > 30%.")
+                st.warning("Trenutno nema parova sa šansom > 10%.")
         else:
             st.error("API greška.")
     except Exception as e:
